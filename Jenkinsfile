@@ -12,9 +12,9 @@ pipeline {
                         checkout(
                             [$class: 'GitSCM',
                             //Acá reemplazar por el nonbre de branch
-                            branches: [[name: "feature/gradle " ]],
+                            branches: [[name: "feature-dir-inicial" ]],
                             //Acá reemplazar por su propio repositorio
-                            userRemoteConfigs: [[url: 'https://github.com/tundervirld/ejemplo-gradle.git']]])
+                            userRemoteConfigs: [[url: 'https://github.com/adroignacio/ejemplo-gradle.git']]])
                     }
                     stage("Paso 1: Build && Test"){
                         sh "echo 'Build && Test!'"
