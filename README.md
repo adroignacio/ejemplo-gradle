@@ -1,69 +1,45 @@
 # Getting Started
-Cambio realizado
-
+Nuevo Test
 ## Windows
-
-### Compile Code
-* ./mvnw.cmd clean compile -e
-
-### Test Code
-* ./mvnw.cmd clean test -e
-
-### Jar Code
-* ./mvnw.cmd clean package -e
-
+​
+### Clean, Compile, Test, Jar
+* gradlew.bat clean build
+​
 ### Run Jar
-* Local:      ./mvnw.cmd spring-boot:run 
-* Background: nohup bash mvnw.cmd spring-boot:run &
-
+* Local:      gradlew.bat bootRun
+* Background: nohup bash gradlew.bat bootRun &
+​
 ### Testing Application
 * Abrir navegador: http://localhost:8081/rest/mscovid/test?msg=testing
-
-## Linux
-
-### Compile Code
-* ./mvnw clean compile -e
-
-### Test Code
-* ./mvnw clean test -e
-
-### Jar Code
-* ./mvnw clean package -e
-
-### Run Jar
-* Local:      ./mvnw spring-boot:run 
-* Background: nohup bash mvnw spring-boot:run &
-
-### Testing Application
 * curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'
-
+## Linux
+​
+### Clean, Compile, Test, Jar
+* gradle clean build
+​
+### Run Jar
+* Local:      gradle bootRun
+* Background: nohup bash gradle bootRun &
+​
+### Testing Application
+* Abrir navegador: http://localhost:8081/rest/mscovid/test?msg=testing
+* curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'
+​
 # Using Docker to test this app.
 ⚠️ **Is mandatory to use Powershell in Windows**
 ## Docker in Windows
 ```bash
-### Compile Code
-docker run -it --rm -v ${pwd}:/code --workdir /code maven mvn clean compile -e
-
-### Test Code
-docker run -it --rm -v ${pwd}:/code --workdir /code maven mvn clean test -e
-
-### Jar Code
-docker run -it --rm -v ${pwd}:/code --workdir /code maven mvn clean package -e
-
+### Clean, Compile, Test, Jar
+docker run -it --rm -v ${pwd}:/code --workdir /code gradlew.bat clean build
+​
 ### Run Jar
-docker run -it --rm -p 8081:8081  -v ${pwd}:/code --workdir /code maven mvn spring-boot:run
+docker run -it --rm -p 9081:8081  -v ${pwd}:/code --workdir /code gradlew.bat bootRun
 ```
 ## Docker in Linux
 ```bash
-### Compile Code
-docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean compile -e
-
-### Test Code
-docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean test -e
-
-### Jar Code
-docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean package -e
-
+### Clean, Compile, Test, Jar
+docker run -it --rm -v $(pwd):/code --workdir /code gradle clean build
+​
 ### Run Jar
-docker run -it --rm -p 8081:8081  -v $(pwd):/code --workdir /code maven mvn spring-boot:run
+docker run -it --rm -p 8081:8081  -v $(pwd):/code --workdir /code gradle bootRun
 ```
