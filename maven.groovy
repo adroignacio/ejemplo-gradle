@@ -21,9 +21,9 @@ stage("${env.TAREA}"){
           sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
       }
   }
-  stage("Paso 5: Curl Springboot Gradle sleep 50"){
-      sh "gradle bootRun&"
-      sh "sleep 50 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
+  stage("Paso 5: Curl Springboot Gradle sleep 20"){
+      sh 'mvn spring-boot:run &'
+      sh "sleep 20 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
   }
   stage("Paso 6: Subir Nexus"){
       nexusPublisher nexusInstanceId: 'nexus',
