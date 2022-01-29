@@ -29,14 +29,11 @@ pipeline {
                 }
             }
             post {
-                always {
-                    sh "echo 'fase always executed post'"
+                success{
+                    slackSend color: 'good', message: "Alejandro [${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-credential'
                 }
-                success {
-                    sh "echo 'fase success'"
-                }
-                failure {
-                    sh "echo 'fase failure'"
+                failure{
+                    slackSend color: 'danger', message: "Alejandro [${env.JOB_NAME}] [${BUILD_TAG}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-credential'
                 }
             }
         }
